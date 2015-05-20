@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using System.IO;
-using System.Runtime.Serialization.Json;
+using Newtonsoft.Json;
 
 namespace CTCT.Util
 {
@@ -47,14 +47,7 @@ namespace CTCT.Util
         /// <returns>Returns the JSON representation of the list.</returns>
         public static string ToJSON(this IList<string> list)
         {
-            string json = null;
-            using (MemoryStream ms = new MemoryStream())
-            {
-                DataContractJsonSerializer ser = new DataContractJsonSerializer(list.GetType());
-                ser.WriteObject(ms, list);
-                json = Encoding.UTF8.GetString(ms.ToArray());
-            }
-
+            var json = JsonConvert.SerializeObject(list);
             return json;
         }
 
@@ -66,14 +59,7 @@ namespace CTCT.Util
         /// <returns>Returns the JSON representation of the list.</returns>
         public static string ToJSON<T>(this IList<T> list) where T : Components.Component
         {
-            string json = null;
-            using (MemoryStream ms = new MemoryStream())
-            {
-                DataContractJsonSerializer ser = new DataContractJsonSerializer(list.GetType());
-                ser.WriteObject(ms, list);
-                json = Encoding.UTF8.GetString(ms.ToArray());
-            }
-
+            var json = JsonConvert.SerializeObject(list);
             return json;
         }
 
@@ -86,7 +72,45 @@ namespace CTCT.Util
         public static T ToEnum<T>(this string s) where T : struct, IConvertible
         {
             T t;
-            return (Enum.TryParse<T>(s, true, out t) ? t : default(T));
+            return (TryParseEnum<T>(s, true, out t) ? t : default(T));
+        }
+
+        public static bool IsNullOrWhiteSpace(this string value)
+        {
+            if (value == null) return true;
+            return string.IsNullOrEmpty(value.Trim());
+        }
+
+        private static bool TryParseEnum<TEnum>(string value, bool ignoreCase, out TEnum result) where TEnum : struct
+        {
+
+            var enumType = typeof(TEnum);
+            if (!enumType.IsEnum)
+                throw new ArgumentException(string.Format("Type '{0}' is not an enum", enumType.FullName));
+
+
+
+
+            if (IsNullOrWhiteSpace(value))
+            {
+                result = default(TEnum);
+                return false;
+            }
+
+
+
+            try
+            {
+                result = (TEnum)Enum.Parse(enumType, value, ignoreCase);
+                return true;
+            }
+            catch (Exception)
+            {
+                result = default(TEnum);
+                return false;
+            }
+
+
         }
     }
 }

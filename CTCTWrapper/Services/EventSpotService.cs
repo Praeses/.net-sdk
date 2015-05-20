@@ -53,7 +53,7 @@ namespace CTCT.Services
         /// <returns>The event</returns>
         public IndividualEvent GetEventSpot(string eventId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -106,7 +106,7 @@ namespace CTCT.Services
         /// <returns>The updated event</returns>
         public IndividualEvent PutEventSpot(string eventId, IndividualEvent eventSpot)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -137,7 +137,7 @@ namespace CTCT.Services
         /// <returns>The updated event</returns>
         public IndividualEvent PatchEventSpotStatus(string eventId, EventStatus eventStatus)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -169,7 +169,7 @@ namespace CTCT.Services
         /// <returns>A list of event fees for the specified event</returns>
         public List<EventFee> GetAllEventFees(string eventId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -196,11 +196,11 @@ namespace CTCT.Services
         /// <returns>An EventFee object</returns>
         public EventFee GetEventFee(string eventId, string feeId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(feeId))
+            if (feeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -228,11 +228,11 @@ namespace CTCT.Services
         /// <returns>The updated EventFee</returns>
         public EventFee PutEventFee(string eventId, string feeId, EventFee eventFee)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(feeId))
+            if (feeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -265,11 +265,11 @@ namespace CTCT.Services
         /// <returns>True if successfuly deleted</returns>
         public bool DeleteEventFee(string eventId, string feeId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(feeId))
+            if (feeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -295,7 +295,7 @@ namespace CTCT.Services
         /// <returns>The newly created EventFee</returns>
         public EventFee PostEventFee(string eventId, EventFee eventFee)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -327,7 +327,7 @@ namespace CTCT.Services
         /// <returns>A list of Promocode</returns>
         public List<Promocode> GetAllPromocodes(string eventId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -354,11 +354,11 @@ namespace CTCT.Services
         /// <returns>The Promocode object</returns>
         public Promocode GetPromocode(string eventId, string promocodeId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(promocodeId))
+            if (promocodeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -385,7 +385,7 @@ namespace CTCT.Services
         /// <returns>The newly created Promocode</returns>
         public Promocode PostPromocode(string eventId, Promocode promocode)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -419,11 +419,11 @@ namespace CTCT.Services
         /// <returns>The newly updated Promocode</returns>
         public Promocode PutPromocode(string eventId, string promocodeId, Promocode promocode)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(promocodeId))
+            if (promocodeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -456,11 +456,11 @@ namespace CTCT.Services
         /// <returns>True if successfuly deleted</returns>
         public bool DeletePromocode(string eventId, string promocodeId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(promocodeId))
+            if (promocodeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -486,11 +486,11 @@ namespace CTCT.Services
         /// <returns>Registrant details</returns>
         public Registrant GetRegistrant(string eventId, string registrantId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(registrantId))
+            if (registrantId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -516,7 +516,7 @@ namespace CTCT.Services
         /// <returns>ResultSet containing a results array of Registrant</returns>
         public ResultSet<Registrant> GetAllRegistrants(string eventId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -542,7 +542,7 @@ namespace CTCT.Services
         /// <returns>A list of EventItem</returns>
         public List<EventItem> GetAllEventItems(string eventId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -569,11 +569,11 @@ namespace CTCT.Services
         /// <returns>EventItem object</returns>
         public EventItem GetEventItem(string eventId, string itemId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(itemId))
+            if (itemId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -601,11 +601,11 @@ namespace CTCT.Services
         /// <returns>The updated EventItem</returns>
         public EventItem PutEventItem(string eventId, string itemId, EventItem eventItem)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(itemId))
+            if (itemId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -637,7 +637,7 @@ namespace CTCT.Services
         /// <returns>The newly created EventItem</returns>
         public EventItem PostEventItem(string eventId, EventItem eventItem)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -669,11 +669,11 @@ namespace CTCT.Services
         /// <returns>True if successfuly deleted</returns>
         public bool DeleteEventItem(string eventId, string itemId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(itemId))
+            if (itemId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -700,11 +700,11 @@ namespace CTCT.Services
         /// <returns>The newly created attribure</returns>
         public CTCT.Components.EventSpot.Attribute PostEventItemAttribute(string eventId, string itemId, CTCT.Components.EventSpot.Attribute attribute)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(itemId))
+            if (itemId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -738,15 +738,15 @@ namespace CTCT.Services
         /// <returns>The newly updated attribute</returns>
         public CTCT.Components.EventSpot.Attribute PutEventItemAttribute(string eventId, string itemId, string attributeId, CTCT.Components.EventSpot.Attribute attribute)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(itemId))
+            if (itemId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(attributeId))
+            if (attributeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -779,15 +779,15 @@ namespace CTCT.Services
         /// <returns>Attribute object</returns>
         public CTCT.Components.EventSpot.Attribute GetEventItemAttribute(string eventId, string itemId, string attributeId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(itemId))
+            if (itemId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(attributeId))
+            if (attributeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -814,11 +814,11 @@ namespace CTCT.Services
         /// <returns>A list of Attributes</returns>
         public List<CTCT.Components.EventSpot.Attribute> GetAllEventItemAttributes(string eventId, string itemId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(itemId))
+            if (itemId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
@@ -846,15 +846,15 @@ namespace CTCT.Services
         /// <returns>True if successfuly deleted</returns>
         public bool DeleteEventItemAttribute(string eventId, string itemId, string attributeId)
         {
-            if (string.IsNullOrWhiteSpace(eventId))
+            if (eventId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(itemId))
+            if (itemId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
-            if (string.IsNullOrWhiteSpace(attributeId))
+            if (attributeId.IsNullOrWhiteSpace())
             {
                 throw new IllegalArgumentException(CTCT.Resources.Errors.InvalidId);
             }
